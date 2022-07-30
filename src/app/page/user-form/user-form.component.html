@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-toolbar>Cadastro</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" action="/users" class="min-width">
+      <mat-form-field class="full-width">
+        <input
+          class='upperCase'
+          matInput
+          placeholder="Nome"
+          formControlName="nome"
+          maxlength="25"
+          (keypress)="justLetters($event)"
+          (input)="form.controls['nome'].setValue(form.controls['nome'].value.toUpperCase())"
+        />
+        <small
+          *ngIf="form.controls['nome'].invalid && form.controls['nome'].touched"
+          class="text-danger"
+          >Obrigatório</small
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Idade"
+          formControlName="idade"
+          (keypress)="justNumbers($event)"
+          maxlength="3"
+        />
+        <small
+          *ngIf="
+            form.controls['idade'].invalid && form.controls['idade'].touched
+          "
+          class="text-danger"
+          >Obrigatório</small
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="CPF"
+          formControlName="cpf"
+          maxlength="11"
+          minlength="11"
+          (keypress)="justNumbers($event)"
+        />
+        <small
+          *ngIf="form.controls['cpf'].invalid && form.controls['cpf'].touched"
+          class="text-danger"
+          >Obrigatório</small
+        >
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          type='button'
+          color="primary"
+          (click)="postar()"
+          [disabled]="!form.valid"
+          routerLink="/users"
+        >
+          Cadastrar
+        </button>
+        <button mat-raised-button routerLink="/users">Cancelar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

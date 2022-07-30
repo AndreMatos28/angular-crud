@@ -1,0 +1,84 @@
+mat-card {
+  width: 70%;
+  margin: 2em auto;
+}
+
+mat-toolbar {
+  font-size: 22px;
+  color: #ffffff;
+  /*     width: 100%;
+ */
+  background-color: #615555;
+  justify-content: center;
+}
+.tbl {
+  padding: 15px;
+  /*     width: 100%;
+ */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+  button {
+  }
+}
+
+.tbl-spinner {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  table {
+    width: 100%;
+
+    mat-cell {
+      margin-left: 0px;
+      padding: 0 20px 0 0;
+      margin-left: 0;
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.min-width {
+  width: 100%;
+  min-width: 150px;
+}
+
+.mat-raised-button.mat-primary {
+  background-color: #615555;
+}
+
+
+.row-user{
+  background-color: rgb(233, 229, 229);
+}
+
+.row-user:hover{
+  background-color: rgb(211, 243, 181);
+}
+.row-special {
+  background-color: rgb(141, 133, 133);
+}
+
+.row-special:hover {
+  background-color: rgb(219, 40, 40);
+  color: #ffffff;
+}
+
+
