@@ -18,7 +18,7 @@ export class UserFormComponent implements OnInit {
 
   //formeBuild tem a logica para criar form group
 
-  constructor(private service: UsersService, private formBuilder: FormBuilder) {
+  constructor(private userService: UsersService, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       nome: new FormControl(null, Validators.required),
       idade: new FormControl(null, Validators.required),
@@ -41,10 +41,7 @@ export class UserFormComponent implements OnInit {
 
   justLetters(event: any) {
     let charCode = event.which ? event.which : event.keyCode;
-    if (
-      (charCode > 64 && charCode < 91) ||
-      (charCode > 96 && charCode < 123) 
-    ) {
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
       return true;
     } else {
       return false;
@@ -58,6 +55,6 @@ export class UserFormComponent implements OnInit {
     }
     console.log('asd');
     console.log(this.form.value);
-    console.log('Formulário válido', this.service.save(this.form.value));
+    console.log('Formulário válido', this.userService.save(this.form.value));
   }
 }

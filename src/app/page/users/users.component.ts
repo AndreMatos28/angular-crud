@@ -2,7 +2,7 @@ import { UsersService } from './../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  users: User[] = [];
+  //users: User[] = [];
+  users: Observable<User[]>;
 
-  //users: Observable<User[]>;
   displayedColumns = ['id', 'nome', 'idade', 'cpf', 'act'];
   //usersService: UsersService;
 
@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     // this.usersService = new UsersService();
-    this.users = this.usersService.get();
+    this.users = this.usersService.getAll();
   }
 
   ngOnInit(): void {}
@@ -36,7 +36,4 @@ export class UsersComponent implements OnInit {
 
     this.usersService.reload();
   }
-
-
 }
-
