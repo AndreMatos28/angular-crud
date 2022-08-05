@@ -2,7 +2,7 @@ import { UsersService } from './../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
